@@ -22,29 +22,6 @@
 			<button id="playButton">Play/Pause</button>
 			<button id="muteButton">Mute/Unmute</button>
 		</main>
-
-		<script>
-			const video = document.querySelector("video")
-			const button = document.querySelector("button")
-
-			function mediaPlayer(config) {
-				this.media = config.el
-			}
-
-			mediaPlayer.prototype.play = function () {
-				this.media.play()
-			}
-
-			mediaPlayer.prototype.pause = function () {
-				this.media.pause()
-			}
-
-			const player = new mediaPlayer({ el: video })
-			const isPlaying = player.paused
-
-			button.onclick = () => {
-				isPlaying ? player.pause() : player.play(), (isPlaying = !isPlaying)
-			}
-		</script>
+		<script src="./assets//index.js"></script>
 	</body>
 </html>
