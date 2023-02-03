@@ -27,7 +27,24 @@
 			const video = document.querySelector("video")
 			const button = document.querySelector("button")
 
-			button.onclick = () => video.play()
+			function mediaPlayer(config) {
+				this.media = config.el
+			}
+
+			mediaPlayer.prototype.play = function () {
+				this.media.play()
+			}
+
+			mediaPlayer.prototype.pause = function () {
+				this.media.pause()
+			}
+
+			const player = new mediaPlayer({ el: video })
+			const isPlaying = player.paused
+
+			button.onclick = () => {
+				isPlaying ? player.pause() : player.play(), (isPlaying = !isPlaying)
+			}
 		</script>
 	</body>
 </html>
